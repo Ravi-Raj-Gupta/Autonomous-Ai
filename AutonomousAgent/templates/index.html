@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TaskCrew AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold mb-8">🤖 TaskCrew AI</h1>
+        
+        <div class="bg-white p-6 rounded-lg shadow mb-6">
+            <textarea id="goalInput" class="w-full h-32 p-3 border rounded" 
+                      placeholder="Enter your goal..."></textarea>
+            <button id="executeBtn" class="mt-4 bg-blue-600 text-white px-6 py-2 rounded">
+                Execute Goal
+            </button>
+        </div>
+        
+        <div id="result" class="bg-white p-6 rounded-lg shadow hidden"></div>
+    </div>
+    
+    <script>
+        document.getElementById('executeBtn').addEventListener('click', async () => {
+            const goal = document.getElementById('goalInput').value;
+            const response = await fetch('/api/execute', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({goal: goal})
+            });
+            const result = await response.json();
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.classList.remove('hidden');
+            resultDiv.innerHTML = `
+                <h2 class="text-xl font-bold mb-2">Result</h2>
+                <pre class="bg-gray-50 p-4 rounded">${JSON.stringify(result, null, 2)}</pre>
+            `;
+        });
+    </script>
+</body>
+</html>
