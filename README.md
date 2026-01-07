@@ -1,50 +1,99 @@
-# 🤖 TaskCrew AI - Autonomous AI Agent System
+# AutonomousAgent
 
-**TaskCrew AI** revolutionizes autonomous task completion through a collaborative multi-agent system that understands complex human goals and executes them with remarkable independence. Designed specifically for hackathon challenges requiring minimal human-AI interaction, this system demonstrates the next generation of intelligent automation where a single natural language instruction triggers comprehensive end-to-end execution.
+✅ **Project**: AutonomousAgent — a modular framework for building autonomous AI agents that can plan, research, execute, and review tasks collaboratively.
 
-## 🏗️ Advanced Tech Stack Architecture
+---
 
-**Core Intelligence Layer**: CrewAI provides the sophisticated agent orchestration framework, enabling seamless collaboration between specialized AI agents. Each agent operates with distinct roles, goals, and backstories, mirroring a professional human team structure.
+## 🔍 Project Description
+AutonomousAgent is a small, opinionated micro-framework that coordinates multiple specialized agents (Planner, Researcher, Executor, Reviewer) to perform complex tasks end-to-end. It provides tools for managing tasks, memory, tooling integrations (code, file, web), and orchestrating agents into a crew that works together to solve user-defined objectives.
 
-**AI Processing Backend**: Powered by OpenAI's GPT models, the system understands nuanced goals, breaks them into logical steps, and maintains context throughout execution. The LLM integration enables natural language understanding and intelligent decision-making at each stage.
+## 🧭 Key Features
+- Modular agent types: Planner, Researcher, Executor, Reviewer
+- Task orchestration and lifecycle management
+- Pluggable tools for code, file, and web interactions
+- Simple templated UI for review/output (Flask templates)
+- Support for persistent outputs/memory
 
-**Web Interface & API**: Flask serves dual purposes - providing a responsive web dashboard for user interaction and a robust REST API for agent communication. The modern frontend built with Tailwind CSS ensures intuitive goal submission and real-time progress tracking.
+# **Tech Stack **
 
-**Tool Ecosystem**: Integration with Serper API enables real-time web search and information gathering. BeautifulSoup4 handles web scraping, Python-pptx manages presentation generation, Pandas processes data analysis, and custom tools extend functionality for code execution, file manipulation, and content creation.
+## **Core Framework & AI**
+| Technology | Version | Purpose | Why We Chose It |
+|------------|---------|---------|----------------|
+| **CrewAI** | 0.1.32 | Multi-agent orchestration framework | Modern, specialized for agent collaboration, better than LangChain for multi-agent systems |
+| **OpenAI API** | 0.28.1 | LLM backend (GPT-3.5/4) | Most reliable, best performance, easy integration |
+| **Python** | 3.9+ | Primary programming language | Rich AI/ML ecosystem, easy to use |
 
-**Memory & Persistence**: SQLite and JSON provide lightweight data storage for execution history, agent memory, and generated outputs, enabling learning from past executions.
+## **Backend & Web Server**
+| Technology | Version | Purpose | Why We Chose It |
+|------------|---------|---------|----------------|
+| **Flask** | 2.3.3 | Web framework | Lightweight, easy for hackathon, simple REST API |
+| **Gunicorn** | (Production) | WSGI HTTP Server | Production deployment |
+| **Python-dotenv** | 1.0.0 | Environment management | Secure API key management |
 
-## 🎯 Sophisticated Agent Collaboration
+## **Tools & Utilities**
+| Technology | Version | Purpose | Why We Chose It |
+|------------|---------|---------|----------------|
+| **DuckDuckGo Search** | 4.1.1 | Free web search | No API key needed, perfect for hackathon |
+| **Requests** | 2.31.0 | HTTP client | Simple API calls |
+| **BeautifulSoup4** | 4.12.2 | Web scraping | Extract content from websites |
+| **Pandas** | 1.5.3 | Data analysis | CSV processing, data manipulation |
+| **Python-pptx** | 0.6.23 | PowerPoint creation | Generate presentations |
+| **Pydantic** | 1.10.12 | Data validation | Type checking for tool inputs |
 
-The system features four specialized agents working in concert:
+## **Frontend**
+| Technology | Version | Purpose | Why We Chose It |
+|------------|---------|---------|----------------|
+| **HTML5** | - | Structure | Standard web markup |
+| **CSS3** | - | Styling | Visual presentation |
+| **JavaScript** | ES6+ | Interactivity | Dynamic web interface |
+| **Tailwind CSS** | CDN | CSS framework | Rapid UI development, responsive design |
 
-**Planner Agent**: Analyzes user goals, identifies requirements, and creates structured execution plans. It anticipates dependencies and potential roadblocks, functioning as the project manager.
+## 📁 Repository Structure
+```
+AutonomousAgent/
+├─ app.py                # Flask app entrypoint
+├─ config.py             # Configuration and constants
+├─ crew_orchestrator.py  # High level orchestration logic
+├─ agents/               # Agent implementations
+│  ├─ planner_agent.py
+│  ├─ researcher_agent.py
+│  ├─ executor_agent.py
+│  └─ reviewer_agent.py
+├─ tools/                # Tooling utilities
+├─ tasks/                # Task definitions
+├─ memory/               # Persistence helpers
+├─ templates/            # Flask templates (UI)
+└─ outputs/              # Generated outputs / artifacts
+```
 
-**Researcher Agent**: Gathers comprehensive information from diverse sources, validates data credibility, and synthesizes findings into actionable intelligence.
+## 🚀 Quickstart
+1. Create and activate a virtual environment (recommended):
+   - python -m venv .venv
+   - .\.venv\Scripts\Activate.ps1 (Windows PowerShell)
+2. Install dependencies:
+   - pip install -r requirements.txt
+3. Run the app locally:
+   - python app.py
+4. Open the UI (if enabled) at: http://127.0.0.1:5000
 
-**Executor Agent**: Implements the plan through practical actions - creating documents, writing code, generating visualizations, and building deliverables.
+> Tip: Use Python 3.10+ for best compatibility.
 
-**Reviewer Agent**: Ensures quality control, validates outputs against requirements, and provides improvement feedback, maintaining high standards throughout.
-
-## 🔧 Real-World Application Scenarios
-
-The system excels in diverse domains:
-
-**Research & Analysis**: From academic literature reviews to market research, agents can synthesize information from multiple sources and create comprehensive reports with proper citations and insights.
-
-**Content Creation**: Automatically generates business presentations, technical documentation, marketing materials, and educational content with appropriate structure and formatting.
-
-**Development Tasks**: Writes functional code, debugs scripts, creates APIs, and implements algorithms based on specifications, complete with documentation and testing.
-
-**Data Processing**: Analyzes datasets, identifies patterns, generates visualizations, and extracts actionable insights from raw data.
-
-## 🚀 Implementation Advantages
-
-**Rapid Deployment**: Simple setup with `pip install` and minimal configuration gets the system running in minutes.
+## ⚙️ Configuration
+- Check `config.py` for configurable settings such as API keys, timeouts, and behavior toggles.
+- Keep secrets out of source control — use environment variables or a .env file.
 
 
-**Cost-Effective**: Utilizes efficient GPT-3.5-turbo by default with optional upgrade paths to more powerful models.
 
-**Educational Value**: Demonstrates modern AI agent patterns, making it an excellent learning tool for AI and automation concepts.
-
-
+## **requirements.txt**
+```txt
+crewai==0.1.32
+openai==0.28.1
+flask==2.3.3
+python-dotenv==1.0.0
+requests==2.31.0
+beautifulsoup4==4.12.2
+duckduckgo-search==4.1.1
+pandas==1.5.3
+python-pptx==0.6.23
+pydantic==1.10.12
+```
