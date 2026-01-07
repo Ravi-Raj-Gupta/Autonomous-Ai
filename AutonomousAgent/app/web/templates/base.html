@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title if title else "AUTONOMOUS" }}</title>
+  <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+</head>
+<body>
+<header>
+  <h1>AUTONOMOS</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/decisions">Decisions</a>
+  </nav>
+</header>
+<main>
+  {% block content %}{% endblock %}
+</main>
+<footer>
+  <p>MSME Autonomy • CrewAI + FastAPI</p>
+</footer>
+</body>
+</html>

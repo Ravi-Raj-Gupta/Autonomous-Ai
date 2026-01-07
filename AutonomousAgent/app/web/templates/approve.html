@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Recent decisions</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th><th>Type</th><th>Confidence</th><th>Requires approval</th><th>Status</th><th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in rows %}
+    <tr>
+      <td>{{ r.decision_id }}</td>
+      <td>{{ r.type }}</td>
+      <td>{{ "%.2f"|format(r.confidence) }}</td>
+      <td>{{ r.requires_approval }}</td>
+      <td>{{ r.status }}</td>
+      <td>
+        <a href="/approve/{{ r.decision_id }}">Review</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
