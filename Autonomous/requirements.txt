@@ -1,0 +1,63 @@
+
+    # AI & Agents
+    langchain==0.1.0           # Agent framework
+    langchain-openai==0.0.5    # OpenAI integration
+    langgraph==0.0.13          # Agent workflows
+    crewai==0.1.16             # Multi-agent coordination
+    llama-index==0.9.48        # RAG capabilities
+
+    # LLM Providers
+    openai==1.3.0              # Primary LLM
+    anthropic==0.7.7           # Claude backup
+    groq==0.3.0                # Fast inference
+    ollama==0.1.4              # Local LLMs
+
+    # Web Framework
+    fastapi==0.104.1           # API server
+    uvicorn[standard]==0.24.0  # ASGI server
+    websockets==12.0           # Real-time updates
+
+    # Database & Storage
+    sqlalchemy==2.0.23         # ORM
+    sqlite==3.45.1             # Development DB
+    psycopg2-binary==2.9.9     # PostgreSQL for production
+    redis==5.0.1               # Caching & queues
+    chromadb==0.4.22           # Vector database
+    qdrant-client==1.6.7       # Alternative vector DB
+    faiss-cpu==1.7.4           # Vector similarity search
+
+    #  Data Processing 
+    pandas==2.1.3              # Data manipulation
+    numpy==1.24.3              # Numerical operations
+    scikit-learn==1.3.2        # ML models
+    joblib==1.3.2              # Model persistence
+
+    #  Document Processing 
+    pypdf2==3.0.1              # PDF parsing
+    pdfplumber==0.10.3         # Better PDF extraction
+    python-docx==1.1.0         # Word docs
+    openpyxl==3.1.2            # Excel files
+    pytesseract==0.3.10        # OCR
+    Pillow==10.1.0             # Image processing
+
+    #  Email & Communication
+    smtplib                    # Built-in email
+    yagmail==0.15.293          # Simplified email
+    twilio==8.13.0             # SMS notifications
+    python-telegram-bot==20.6  # Telegram alerts
+
+    # ERP Integrations 
+    zeep==4.2.1                # SOAP clients for SAP
+    pyzoho==2.0                # Zoho Books API
+    quickbooks-python==0.1.0   # QuickBooks API
+    tallyerp==0.1.3            # Tally integration
+
+    # Utilities 
+    pydantic==2.5.0            # Data validation
+    pydantic-settings==2.1.0   # Configuration
+    python-dotenv==1.0.0       # Environment variables
+    celery==5.3.4              # Task queue
+    APScheduler==3.10.4        # Scheduled tasks
+    loguru==0.7.2              # Logging
+    pytest==7.4.3              # Testing
+    pytest-asyncio==0.21.1     # Async tests
