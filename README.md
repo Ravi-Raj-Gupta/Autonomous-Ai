@@ -43,3 +43,50 @@ AUTONOMOS can expand into industry-specific versions and integrate with accounti
 8. Positioning Statement
 
 AUTONOMOS takes over routine operational thinking while keeping business owners in control of intent.
+
+
+System architecture
+
+                ┌───────────────────────────────┐
+                │         User interface         │
+                │  FastAPI + Jinja2 Dashboard    │
+                │  (Approvals & Decisions UI)    │
+                └───────────────┬───────────────┘
+                                │
+                                ▼
+                ┌───────────────────────────────┐
+                │           API layer            │
+                │  /ingest, /cycle, /decisions   │
+                │  FastAPI routes + services     │
+                └───────────────┬───────────────┘
+                                │
+                                ▼
+                ┌───────────────────────────────┐
+                │       CrewAI orchestration     │
+                │  Agents: Observer, Reasoner,   │
+                │  PO Agent, Vendor Agent,       │
+                │  Supervisor                    │
+                └───────────────┬───────────────┘
+                                │
+                                ▼
+                ┌───────────────────────────────┐
+                │       Intelligence layer       │
+                │  Policies (inventory rules)    │
+                │  LLM stub (rationale only)     │
+                └───────────────┬───────────────┘
+                                │
+                                ▼
+                ┌───────────────────────────────┐
+                │           Data layer           │
+                │  SQLite/Postgres + SQLAlchemy  │
+                │  Tables: Inventory, Sales,     │
+                │  Vendors, POs, Decisions       │
+                └───────────────┬───────────────┘
+                                │
+                                ▼
+                ┌───────────────────────────────┐
+                │         Communication          │
+                │  Gmail SMTP (App Password)     │
+                │  Vendor emails & PO notices    │
+                └───────────────────────────────┘
+
