@@ -375,12 +375,4 @@ Before your presentation:
 
 ---
 
-## 📞 Support
 
-For hackathon questions:
-1. Check debug logs in the UI
-2. Review backend console output
-3. Test endpoints individually
-4. Validate API keys
-
-**Good luck with your hackathon! 🚀**
