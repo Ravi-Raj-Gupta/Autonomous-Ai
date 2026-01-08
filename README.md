@@ -94,33 +94,8 @@ AUTONOMOS takes over routine operational thinking while keeping business owners 
         └─────────────────────┘
 ```
 
-### How It Works
 
-#### 1. **LangChain Agent Mode (Fast)**
-- Single AI agent analyzes each inventory item
-- Makes autonomous decisions (AUTO_APPROVE vs ESCALATE)
-- Uses structured prompts for consistent output
-- Suitable for quick demonstrations (5-10 seconds)
-
-#### 2. **CrewAI Multi-Agent Mode (Thorough)**
-- Three specialized agents collaborate:
-  - **Inventory Analyst**: Predicts stockouts and analyzes demand
-  - **Procurement Manager**: Makes purchasing decisions
-  - **Risk Assessor**: Evaluates financial and operational risks
-- Sequential workflow with inter-agent communication
-- More comprehensive analysis (30-60 seconds)
-
-#### 3. **Decision Logic**
-```python
-if total_cost < $500 and normal_pattern:
-    decision = "AUTO_APPROVE"
-    → Send email automatically
-    → Update inventory
-else:
-    decision = "ESCALATE"
-    → Notify human for approval
-```
-### Part 1: Problem Statement (2 minutes)
+### Part 1: Problem Statement
 "MSMEs waste 60% of operational time on manual coordination. Inventory shortages, delayed vendor communication, and reactive decision-making hurt growth."
 
 ### Part 2: Solution Architecture
