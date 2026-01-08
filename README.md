@@ -1,6 +1,5 @@
 # AUTONOMOS - Agentic Operations Manager for MSMEs
 
-## 🎯 Project Overview
 
 AUTONOMOS is an AI-powered operations manager that uses **Python, LangChain, CrewAI, and OpenAI** to autonomously handle inventory management, procurement decisions, and vendor communications for small and medium businesses.
 
