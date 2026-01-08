@@ -152,8 +152,6 @@ else:
 
 ---
 
-## 🎓 Demonstration Script for Hackathon
-
 ### Part 1: Problem Statement (2 minutes)
 "MSMEs waste 60% of operational time on manual coordination. Inventory shortages, delayed vendor communication, and reactive decision-making hurt growth."
 
@@ -254,58 +252,6 @@ inventory = [
 # Run full demo inventory
 # Expected: Mix of AUTO_APPROVE and ESCALATE decisions
 ```
-
----
-
-## 📊 Judging Criteria Alignment
-
-### 1. Innovation and Originality (25%)
-- **Novel approach**: Multi-agent AI system for MSME operations
-- **Technical innovation**: LangChain + CrewAI integration
-- **Unique value**: Autonomous decision-making, not just automation
-
-### 2. Problem Relevance and Impact (25%)
-- **Real problem**: MSMEs spend 60% time on operations
-- **Measurable impact**: 70% time reduction demonstrated
-- **Market size**: 63 million MSMEs in India alone
-
-### 3. Technical Implementation (25%)
-- **Full-stack**: Python backend + React frontend
-- **AI frameworks**: LangChain, CrewAI, OpenAI integration
-- **Production-ready**: REST API, error handling, async operations
-- **Code quality**: Modular, documented, scalable
-
-### 4. Feasibility and Scalability (15%)
-- **Proven tech stack**: FastAPI, LangChain (industry-standard)
-- **Low operational cost**: Pay-per-use AI API
-- **Horizontal scaling**: Add agents for different functions
-- **Vertical scaling**: Industry-specific versions
-
-### 5. Presentation and Demonstration (10%)
-- **Working prototype**: Fully functional demo
-- **Clear value prop**: Time saved, errors prevented
-- **Compelling narrative**: Problem → Solution → Impact
-- **Technical depth**: Show Python code, agent logs, decisions
-
----
-
-## 🎯 Winning Strategy
-
-### What Makes This Stand Out:
-
-1. **Genuine AI Agents**: Uses CrewAI and LangChain (not just API calls)
-2. **Python-Powered**: Shows backend development skills
-3. **Practical Problem**: Solves real MSME pain points
-4. **Complete Solution**: Frontend + Backend + AI + Email automation
-5. **Scalable Architecture**: Can expand to full operations platform
-
-### Key Talking Points:
-
-- "We built a multi-agent AI system using CrewAI where specialized agents collaborate"
-- "LangChain provides the intelligence layer for context-aware decisions"
-- "Python backend handles orchestration, FastAPI serves the REST API"
-- "Real-time email automation closes the loop with vendors"
-- "70% operational time reduction in our testing scenarios"
 
 ---
 
