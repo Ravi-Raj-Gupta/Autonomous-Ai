@@ -1,45 +1,99 @@
+# AutonomousAgent
 
-PROJECT CONTEXT DOCUMENT
-Project: An Agentic Operations Manager for MSMEs (AUTONOMOS)
+✅ **Project**: AutonomousAgent — a modular framework for building autonomous AI agents that can plan, research, execute, and review tasks collaboratively.
 
-This document captures the complete working context of the project idea discussed so far, rewritten in clear, natural, human language so it does not appear machine-generated. The structure and idea flow are preserved to ensure continuity.
+---
 
-1. Project Overview
+## 🔍 Project Description
+AutonomousAgent is a small, opinionated micro-framework that coordinates multiple specialized agents (Planner, Researcher, Executor, Reviewer) to perform complex tasks end-to-end. It provides tools for managing tasks, memory, tooling integrations (code, file, web), and orchestrating agents into a crew that works together to solve user-defined objectives.
 
-AUTONOMOS is an intelligent operations manager designed specifically for small and medium-sized businesses. These businesses usually rely on manual coordination across inventory, procurement, vendors, invoicing, and workforce planning. As a result, owners spend most of their time reacting to daily operational issues instead of focusing on growth.
+## 🧭 Key Features
+- Modular agent types: Planner, Researcher, Executor, Reviewer
+- Task orchestration and lifecycle management
+- Pluggable tools for code, file, and web interactions
+- Simple templated UI for review/output (Flask templates)
+- Support for persistent outputs/memory
 
-The goal of AUTONOMOS is to reduce this burden by acting as a decision-making layer that quietly manages routine operations and involves humans only when judgment or approval is genuinely required.
+# **Tech Stack **
 
-2. Core Problem Statement
+## **Core Framework & AI**
+| Technology | Version | Purpose | Why We Chose It |
+|------------|---------|---------|----------------|
+| **CrewAI** | 0.1.32 | Multi-agent orchestration framework | Modern, specialized for agent collaboration, better than LangChain for multi-agent systems |
+| **OpenAI API** | 0.28.1 | LLM backend (GPT-3.5/4) | Most reliable, best performance, easy integration |
+| **Python** | 3.9+ | Primary programming language | Rich AI/ML ecosystem, easy to use |
 
-Most MSMEs operate with disconnected tools and manual processes. Inventory data sits in spreadsheets, vendor communication happens over calls or emails, and staffing decisions are made on the fly. This fragmentation causes frequent errors, delays, stock shortages, and unnecessary stress for owners and managers.
+## **Backend & Web Server**
+| Technology | Version | Purpose | Why We Chose It |
+|------------|---------|---------|----------------|
+| **Flask** | 2.3.3 | Web framework | Lightweight, easy for hackathon, simple REST API |
+| **Gunicorn** | (Production) | WSGI HTTP Server | Production deployment |
+| **Python-dotenv** | 1.0.0 | Environment management | Secure API key management |
 
-Existing automation tools mostly execute predefined workflows. They do not understand context, do not adapt, and do not take responsibility for decisions.
+## **Tools & Utilities**
+| Technology | Version | Purpose | Why We Chose It |
+|------------|---------|---------|----------------|
+| **DuckDuckGo Search** | 4.1.1 | Free web search | No API key needed, perfect for hackathon |
+| **Requests** | 2.31.0 | HTTP client | Simple API calls |
+| **BeautifulSoup4** | 4.12.2 | Web scraping | Extract content from websites |
+| **Pandas** | 1.5.3 | Data analysis | CSV processing, data manipulation |
+| **Python-pptx** | 0.6.23 | PowerPoint creation | Generate presentations |
+| **Pydantic** | 1.10.12 | Data validation | Type checking for tool inputs |
 
-3. What Makes AUTONOMOS Different
+## **Frontend**
+| Technology | Version | Purpose | Why We Chose It |
+|------------|---------|---------|----------------|
+| **HTML5** | - | Structure | Standard web markup |
+| **CSS3** | - | Styling | Visual presentation |
+| **JavaScript** | ES6+ | Interactivity | Dynamic web interface |
+| **Tailwind CSS** | CDN | CSS framework | Rapid UI development, responsive design |
 
-AUTONOMOS is not a dashboard or a reporting tool. It behaves more like a junior operations manager.
+## 📁 Repository Structure
+```
+AutonomousAgent/
+├─ app.py                # Flask app entrypoint
+├─ config.py             # Configuration and constants
+├─ crew_orchestrator.py  # High level orchestration logic
+├─ agents/               # Agent implementations
+│  ├─ planner_agent.py
+│  ├─ researcher_agent.py
+│  ├─ executor_agent.py
+│  └─ reviewer_agent.py
+├─ tools/                # Tooling utilities
+├─ tasks/                # Task definitions
+├─ memory/               # Persistence helpers
+├─ templates/            # Flask templates (UI)
+└─ outputs/              # Generated outputs / artifacts
+```
 
-It continuously watches signals such as sales trends, inventory movement, vendor delays, and staff availability. Based on these signals, it independently takes actions like reordering stock, adjusting delivery timelines, communicating with vendors, and rebalancing internal tasks or shifts.
+## 🚀 Quickstart
+1. Create and activate a virtual environment (recommended):
+   - python -m venv .venv
+   - .\.venv\Scripts\Activate.ps1 (Windows PowerShell)
+2. Install dependencies:
+   - pip install -r requirements.txt
+3. Run the app locally:
+   - python app.py
+4. Open the UI (if enabled) at: http://127.0.0.1:5000
 
-Human involvement is required only when a decision has financial, legal, or strategic risk.
+> Tip: Use Python 3.10+ for best compatibility.
 
-4. Expected Impact
+## ⚙️ Configuration
+- Check `config.py` for configurable settings such as API keys, timeouts, and behavior toggles.
+- Keep secrets out of source control — use environment variables or a .env file.
 
-Business owners spend less time on daily firefighting and experience fewer operational mistakes. Businesses benefit from reduced stockouts, faster responses, and improved productivity without increasing headcount.
 
-5. Feasibility and Prototype Scope
 
-The project is feasible in a hackathon setting. The prototype can focus on inventory management and vendor communication using simulated data such as sales records and invoices.
-
-6. Human-Effort Reduction Features
-
-Daily summaries, plain-language commands, silent issue handling, one-click approvals, self-learning procedures, automated vendor communication, error detection, transparency features, gradual autonomy, and monthly effort reports together minimize human workload.
-
-7. Scalability Vision
-
-AUTONOMOS can expand into industry-specific versions and integrate with accounting and ERP systems using a modular SaaS model.
-
-8. Positioning Statement
-
-AUTONOMOS takes over routine operational thinking while keeping business owners in control of intent.
+## **requirements.txt**
+```txt
+crewai==0.1.32
+openai==0.28.1
+flask==2.3.3
+python-dotenv==1.0.0
+requests==2.31.0
+beautifulsoup4==4.12.2
+duckduckgo-search==4.1.1
+pandas==1.5.3
+python-pptx==0.6.23
+pydantic==1.10.12
+```
