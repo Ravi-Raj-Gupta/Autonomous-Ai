@@ -13,79 +13,6 @@ AUTONOMOS is an AI-powered operations manager that uses **Python, LangChain, Cre
 - **React** - Frontend interface
 
 ---
-
-## 🚀 Complete Setup Guide
-
-### Prerequisites
-```bash
-# Python 3.9+
-python --version
-
-# Node.js (for frontend development)
-node --version
-```
-
-### Step 1: Install Python Dependencies
-
-Create a virtual environment (recommended):
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-Install required packages:
-```bash
-pip install fastapi uvicorn langchain langchain-openai crewai pandas python-dotenv resend pydantic
-```
-
-### Step 2: Create Environment File
-
-Create `.env` file in your project root:
-```env
-OPENAI_API_KEY=sk-proj-your-key-here
-RESEND_API_KEY=re_your-key-here  # Optional
-```
-
-### Step 3: Save the Backend Code
-
-Save the Python backend code as `autonomos_backend.py`
-
-### Step 4: Run the Backend Server
-
-```bash
-uvicorn autonomos_backend:app --reload --port 8000
-```
-
-You should see:
-```
-INFO:     Uvicorn running on http://127.0.0.1:8000
-INFO:     Application startup complete.
-```
-
-### Step 5: Test Backend Connection
-
-Open browser and visit: `http://localhost:8000`
-
-You should see:
-```json
-{
-  "service": "AUTONOMOS Backend",
-  "version": "1.0.0",
-  "status": "operational",
-  "features": [...]
-}
-```
-
-### Step 6: Launch Frontend
-
-1. Open the React artifact in Claude
-2. Click "Launch AUTONOMOS"
-3. Enter backend URL: `http://localhost:8000`
-4. Enter your OpenAI API key
-5. (Optional) Enter Resend API key and your email
-
----
-
 ## 🏗️ Architecture Explanation
 
 ### Component Breakdown
@@ -149,63 +76,15 @@ else:
     decision = "ESCALATE"
     → Notify human for approval
 ```
-
----
-
 ### Part 1: Problem Statement (2 minutes)
 "MSMEs waste 60% of operational time on manual coordination. Inventory shortages, delayed vendor communication, and reactive decision-making hurt growth."
 
-### Part 2: Solution Architecture (3 minutes)
+### Part 2: Solution Architecture
 "AUTONOMOS uses Python-based AI agents to autonomously manage operations:
 - **LangChain** for intelligent decision-making
 - **CrewAI** for multi-agent collaboration
 - **OpenAI GPT-4** as the reasoning engine
 - Real-time email automation via Resend API"
-
-### Part 3: Live Demo (5 minutes)
-
-**Scenario Setup:**
-"We have a retail store with 5 products. 4 are critically low on stock."
-
-**Step 1: LangChain Analysis**
-```
-Click: "Run Analysis" (LangChain mode)
-Show: Agent analyzing each item in real-time
-Result: 4 decisions made in 10 seconds
-        - 2 AUTO_APPROVED (sent emails)
-        - 2 ESCALATED (need approval)
-```
-
-**Step 2: CrewAI Deep Dive**
-```
-Switch to: "CrewAI Multi-Agent"
-Click: "Run Analysis"
-Show: Multiple agents collaborating
-      - Inventory Analyst assessing demand
-      - Procurement Manager planning orders
-      - Risk Assessor evaluating costs
-Result: Comprehensive multi-agent report
-```
-
-**Step 3: Email Automation**
-```
-Show: Auto-generated vendor emails
-Demonstrate: One-click approval for escalated items
-Result: Emails sent instantly via Python backend
-```
-
-### Part 4: Technical Highlights (3 minutes)
-
-**Code Walkthrough:**
-```python
-# LangChain Agent
-agent = InventoryAnalysisAgent(api_key)
-decision = agent.analyze_item(inventory_item)
-
-# CrewAI Multi-Agent System
-crew = ProcurementCrew(api_key)
-crew_analysis = crew.analyze_inventory_situation(items)
-```
 
 **AI Agent Features:**
 - Structured output parsing with Pydantic
@@ -213,7 +92,7 @@ crew_analysis = crew.analyze_inventory_situation(items)
 - Sequential task execution in CrewAI
 - Automated email composition
 
-### Part 5: Impact & Scalability (2 minutes)
+### Impact & Scalability 
 
 **Measured Impact:**
 - 70% reduction in manual coordination time
@@ -228,69 +107,3 @@ crew_analysis = crew.analyze_inventory_situation(items)
 - Multi-location support
 
 ---
-
-## 🧪 Testing Scenarios
-
-### Test 1: Critical Stock Situation
-```python
-inventory = [
-    {"name": "Mouse", "stock": 2, "reorderPoint": 15, "salesPerDay": 3}
-]
-# Expected: AUTO_APPROVE, HIGH urgency, email sent
-```
-
-### Test 2: High-Cost Escalation
-```python
-inventory = [
-    {"name": "Laptop", "stock": 1, "reorderPoint": 5, "price": 1200, "salesPerDay": 2}
-]
-# Expected: ESCALATE (cost > $500), requires approval
-```
-
-### Test 3: Multiple Items
-```python
-# Run full demo inventory
-# Expected: Mix of AUTO_APPROVE and ESCALATE decisions
-```
-
----
-
-## 🔧 Troubleshooting
-
-### Backend Won't Start
-```bash
-# Check port availability
-lsof -i :8000  # macOS/Linux
-netstat -ano | findstr :8000  # Windows
-
-# Use different port
-uvicorn autonomos_backend:app --reload --port 8001
-```
-
-### OpenAI API Errors
-```python
-# Check API key format
-assert api_key.startswith("sk-proj-")
-
-# Test connection
-from openai import OpenAI
-client = OpenAI(api_key=your_key)
-client.models.list()
-```
-
-### CORS Issues
-```python
-# Backend already configured for CORS
-# If issues persist, check browser console
-# Ensure backend URL matches exactly
-```
-
----
-
-## 📚 Additional Resources
-
-### Learn More:
-- **LangChain Docs**: https://python.langchain.com/
-- **CrewAI Docs**: https://docs.crewai.com/
-- **FastAPI Tutorial**: https://fastapi.tiangolo.com/
-- **Resend API**: https://resend.com/docs
